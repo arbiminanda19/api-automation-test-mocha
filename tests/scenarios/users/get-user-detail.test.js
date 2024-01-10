@@ -13,7 +13,6 @@ const expect = chai.expect;
 describe("API Authentications", function () {
   let token, userId;
   before(async () => {
-    this.timeout(5000);
     const dataLogin = await login(REQUEST_VALID_LOGIN_DATA);
     token = dataLogin.token;
     userId = dataLogin.userId;
