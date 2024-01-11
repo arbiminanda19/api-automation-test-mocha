@@ -8,9 +8,8 @@ import { login } from "../../helper/login.js";
 
 chai.use(jsonSchema);
 const assert = chai.assert;
-const expect = chai.expect;
 
-describe("API Authentications", function () {
+describe("API Users", function () {
   let token, userId;
   before(async () => {
     const dataLogin = await login(REQUEST_VALID_LOGIN_DATA);
@@ -30,6 +29,6 @@ describe("API Authentications", function () {
       data.RESPONSE_VALID_GET_USER_DETAIL.message
     );
 
-    expect(response.data).to.be.jsonSchema(VALID_GET_USER_DETAIL_SCHEMA);
+    assert.jsonSchema(response.data, VALID_GET_USER_DETAIL_SCHEMA);
   });
 });

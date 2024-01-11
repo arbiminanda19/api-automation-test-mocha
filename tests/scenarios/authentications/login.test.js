@@ -6,7 +6,6 @@ import { VALID_AUTHENTICATIONS_SCHEMA } from "../../schema/authentications/authe
 
 chai.use(jsonSchema);
 const assert = chai.assert;
-const expect = chai.expect;
 
 describe("API Authentications", function () {
   it("C1 - Should success log in", async function () {
@@ -15,6 +14,6 @@ describe("API Authentications", function () {
     assert.equal(response.status, data.RESPONSE_VALID_LOGIN.http_code);
     assert.equal(response.data.message, data.RESPONSE_VALID_LOGIN.message);
 
-    expect(response.data).to.be.jsonSchema(VALID_AUTHENTICATIONS_SCHEMA);
+    assert.jsonSchema(response.data, VALID_AUTHENTICATIONS_SCHEMA);
   });
 });
